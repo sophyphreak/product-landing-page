@@ -3,18 +3,20 @@ import {
   Form,
   FormGroup,
   Input,
-  Label,
   Button,
   Row,
-  Col
+  Col,
+  FormFeedback
 } from 'reactstrap';
 import { rowStyle, formStyle, pStyle } from './EmailFromStyle';
+import validateEmail from './validation/validateEmail';
 
 class EmailForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: ''
+      email: '',
+      invalidEmail: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -25,12 +27,15 @@ class EmailForm extends Component {
   }
   onSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
-    
-    fetch('https://www.freecodecamp.com/email-submit', {
-      method: 'POST',
-      body: data,
-    });
+    if (validateEmail(this.state.email)) {
+      const email = '';
+      const invalidEmail = false;
+      this.setState({ email, invalidEmail });
+      alert('email received!');
+    } else {
+      const invalidEmail = true;
+      this.setState({ invalidEmail });
+    }
   }
   render() {
     return (
@@ -39,7 +44,8 @@ class EmailForm extends Component {
       <Form onSubmit={this.onSubmit} style={formStyle} >
       <FormGroup>
       <p style={pStyle} >the bestest, oldest book</p>
-      <Input type="email" value={this.state.email} onChange={this.handleChange} placeholder="enter your email" />
+      <Input invalid={this.state.invalidEmail} type="email" value={this.state.email} onChange={this.handleChange} placeholder="enter your email" />
+      <FormFeedback>Please enter email.</FormFeedback>
       </FormGroup>
       <Button color="primary" >Submit</Button>
       </Form>
