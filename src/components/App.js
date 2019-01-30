@@ -1,9 +1,11 @@
 import React from 'react';
-import Header from './Header/Header';
+import Navigation from './Navigation/Navigation';
+import EmailForm from './EmailForm/EmailForm';
 
 const App = () => (
   <div>
-    <Header />
+    <Navigation />
+    <EmailForm />
   </div>
 );
 
