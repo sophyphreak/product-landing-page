@@ -1,5 +1,6 @@
 export const sectionStyle = {
-  marginTop: '2em'
+  marginTop: '2em',
+  marginBottom: '10em'
 };
 
 export const divStyle = {
