@@ -5,7 +5,7 @@ import { sectionStyle } from './FeaturesStyle';
 const Features = () => (
   <section id="features" style={sectionStyle}>
     <Row>
-      <Col sm={{ size: 6, offset: 3 }} xs="12">
+      <Col md={{ size: 4, offset: 4 }} sm={{ size: 6, offset: 3 }} xs="12">
         <h2>features:</h2>
         <ul>
           <li>2500-year-old book</li>

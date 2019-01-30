@@ -6,7 +6,7 @@ import { sectionStyle, divStyle } from './VideoStyle';
 const Video = () => (
   <section style={sectionStyle} id="how-it-works">
     <Row>
-      <Col sm={{ size: 4, offset: 3 }} xs="12">
+      <Col md={{ size: 4, offset: 4 }} sm={{ size: 4, offset: 3 }} xs="12">
         <h2>how it works:</h2>
       </Col>
     </Row>
